@@ -1,0 +1,35 @@
+#smileyIcon{
+    height:400px;
+    width:400px;
+    border-radius:50%;
+    background-color:yellow;
+    position:relative;
+}
+.smileyEyeLeft{
+    position:absolute;
+    background-color:black;
+    height:50px;
+    width:50px;
+    left:80px;
+    top:100px;
+    border-radius:50%;
+}
+.smileyEyeRight{
+    position:absolute;
+    background-color:black;
+    height:50px;
+    width:50px;
+    right:80px;
+    top:100px;
+    border-radius:50%;
+}
+.smileyMouth{
+    position:absolute;
+    background-color:red;
+    height:50px;
+    width:150px;
+    top:250px;
+    left:125px;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+}

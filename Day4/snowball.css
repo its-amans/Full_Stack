@@ -1,0 +1,8 @@
+section{
+    font-size:15px;
+}
+div{
+    font-size:2em;
+    /* here font -size is a typographical property that why the em takes parent child relation imn this */
+    /* Due to this each child font gets doubled according to their parent */
+}

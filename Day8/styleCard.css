@@ -1,0 +1,29 @@
+#clientCard{
+    display:flex;
+}
+.clientBox{
+    height:400px;
+    width:250px;
+    margin:30px;
+    border-radius:25px;
+    box-shadow:5px 5px 10px black;
+}
+.clientBox:hover{
+    box-shadow:8px 8px 15px black;
+}
+.clientInfo{
+    font-size:25px;
+    margin:20px;
+}
+.menImage{
+    height:250px;
+    width:250px;
+    background-image:url("men.png");
+    background-size: cover;
+}
+.womanImage{
+    height:250px;
+    width:250px;
+    background-image:url("woman.png");
+    background-size: cover;
+}

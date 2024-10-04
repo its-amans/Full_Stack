@@ -1,0 +1,19 @@
+h1{
+    text-align:center;
+}
+
+.container{
+    height:600px;
+    width:1100px;
+    border:2px solid black;
+    display:flex;
+    margin: 0 auto;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:center;
+    /* Try both here align items and align content here with all attribute. */
+}
+.container div{
+    height:100px;
+    width:300px;
+}

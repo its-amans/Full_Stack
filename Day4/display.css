@@ -1,0 +1,13 @@
+div{
+    height:200px;
+    width:200px;
+    background-color: #e61111;
+    margin:5px;
+    border:2px solid black;
+    /* To make the div in the same line we use display inline property */
+    /* display:inline; 
+    So we are not using display inline bcz it will not consider the property of height,width,background-color,margin top and bottom and etc */
+
+    display:inline-block; 
+    /* This will make the div inline element(take only req spacing) which consider all the properties */
+}
