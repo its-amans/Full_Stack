@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css" class="css">
+</head>
+<body>
+    <!-- CREATING NAVBAR -->
+    <!-- Just using pre-written boptstrap components -->
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <!-- fixed-top attribute value can be use to stick the navbar to top -->
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">Aman Srivastava</a>
+        <!-- Hambergen Icon -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a href="#" class="nav-link active" aria-current="page">Home</a>
+                <a href="#" class="nav-link">Feature</a>
+                <a href="#" class="nav-link">Pricing</a>
+            </div>
+        </div>
+    </div>
+    </nav>
+<!-- WE CAN USE UL LI TYPE NAVBAR ALSO IN BOOTSTRAP -->
+
+
+<!-- CREATING CARDS -->
+    <div class="container-fluid">
+        <div class="cards" style="width:18rem;">
+            <img src="men.png" class="card-img-top" alt="Customer image">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam possimus deserunt autem sunt cupiditate ipsum, itaque reiciendis tenetur consequatur facere.</p>
+                <a href="" class="btn btn-primary">CLick me!</a>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- CREATING CONTAINER -->
+    <div class="container-fluid">
+        <h1>Bootstrap Playground</h1>
+        <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea deserunt vitae doloremque saepe eligendi, alias delectus autem. Earum est impedit illum quae culpa quos voluptatum consequatur iure libero. Voluptatibus, aliquid!
+        Vero dignissimos, maxime maiores debitis asperiores laboriosam atque fugiat consectetur perferendis sequi laborum illo quod earum ullam tempore eaque voluptate aperiam velit non deleniti odio! Harum nostrum nobis voluptatum corrupti.
+        Molestias sit veritatis quaerat dolor, veniam accusamus quisquam dolorum incidunt inventore dolore placeat quia eos, voluptate porro blanditiis assumenda optio nostrum cum, harum labore eum. Minima velit cum aspernatur nostrum.
+        Architecto provident dolorum corrupti impedit ipsum maiores? Voluptate vero modi harum repudiandae, inventore commodi. In unde dolorem nihil, quibusdam perferendis nemo molestiae? Vero recusandae laudantium quidem, laborum eaque corporis suscipit!
+        Qui impedit sed iure, dolorum perspiciatis distinctio mollitia sequi doloremque exercitationem natus non labore! Vero, deleniti corporis alias autem ullam vel soluta, dolor, architecto accusantium maxime odit eaque? Consequatur, ipsam!</p>
+    </div>
+
+
+    <!-- CREATING BUTTONS -->
+
+    <div class="btn btn-danger">Click me!</div>
+    <a class="btn btn-outline-dark" href="#">Link</a>
+
+    <!-- CREATING BADGES -->
+    <br>
+    <div class="btn btn-outline-dark">click me!
+    <span class="badge text-bg-success">20+</span>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary position-relative">
+        Inbox
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          99+
+        </span>
+      </button>
+
+    <!-- CREATING ALERTS -->
+    <div class="alert alert-primary" role="alert"> Primary Alert </div>
+    <div class="alert alert-success"> Hi! Your Registration is Successful..</div>
+    <div class="alert alert-danger"> Registration Failed!</div>
+    
+    <!-- Alert with anchor tag -->
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    </div>
+    <div class="alert alert-dismissible alert-success ">Your Score is 50/50
+    <button class="btn btn-close"  data-bs-dismiss="alert"></button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
