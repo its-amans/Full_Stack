@@ -10,6 +10,7 @@
     justify-content:space-between;
     align-content:center;
     position:fixed;
+    z-index: 10;
 }
 .logo{
     display:flex;
@@ -91,14 +92,17 @@
     background-color:black;
     display:flex;
 }
-.right{
-    width:79%;
-    background-color:#121212;
-    margin-top:60px;
+.right {
+    position: absolute;
+    left: 21.5vw;
+    width: 50%;
+    background-color: #121212;
+    margin-top: 60px;
 }
 .playlist{
     margin:10px;
     display:flex;
+    flex-wrap: wrap;
 }
 h1{
     color:white;
@@ -120,6 +124,42 @@ h1{
     font-size:1.5rem;
     color:white;
 }
+
+ /* ...........right side footer............. */
+ .footer{
+    display:flex;
+    height:250px;
+    align-content:center;
+    justify-content: center;
+    background-color: #121212;
+  }
+  .line{
+    height:100px;
+    width:90vw;
+    border-top: 2px solid white;
+    opacity: 0.4;
+  }
+
+.musicbar{
+    position:fixed;
+    right:0px;
+    background-color:#121212;
+    color:white;
+    width:27.5vw;
+    height:90vh;
+    top:0px;
+    margin-top:60px;
+}
+.musicbar-spacer{
+    position:fixed;
+    right:0px;
+    background-color:#121212;
+    width:27.5vw;
+    height:90vh;
+    top:0px;
+    margin-top:60px;
+}
+
 
 /* left */
 .left{
@@ -201,6 +241,7 @@ h1{
     padding:5px;
     font-size:1.2rem;
 }
+
 /* ..............Footer Section ................ */
 
 .musicPlayer{
@@ -264,3 +305,4 @@ h1{
     background-color: white;
     border-radius: 5px;
   }
+
