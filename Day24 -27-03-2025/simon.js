@@ -76,7 +76,7 @@ function gamecheck(){
     }
     else{
         document.body.classList.add("error");
-        lev.innerText="Game Over ! Press any key to restart the game";
+        lev.innerHTML=`</b>Game Over ! Your Score was ${level-1}</b> </br> Press any key to restart the game`;
         started=false;
         level=0;
         gameseq=[];
@@ -87,5 +87,5 @@ function gamecheck(){
     }   
 }
 
-
+//logic problem that the code dont give error until you fill the no of colors equal to level. It should give error at the same moment when the wrong color entry is done without wait to enter all the color .i.e equal to levels.
 
