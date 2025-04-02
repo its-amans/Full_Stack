@@ -22,6 +22,10 @@ console.log(validRes.fact);
 //1.    Hopscotch  ---open source  //https://hoppscotch.io/
 //2.    Postman
 
+
+
+//Free API
+
 //1. https://api.potterdb.com
 //2. https://catfact.ninja/fact
 //3. https://dog.ceo/api/breeds/image/random
