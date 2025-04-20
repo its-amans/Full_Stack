@@ -1,0 +1,16 @@
+<!-- Subtemplate include kiya -->
+ 
+<%- include("includes/head.ejs") %>
+<body>
+    <h1>The random value is <%= rand %></h1>
+
+    <!-- Writing conditional statement in ejs -->
+    <% if (rand==10){  %>
+        <h3>You got a super 10</h3>
+    <% } %>
+    
+
+    <!-- subtemplate -->
+    <%- include("includes/footer.ejs") %>
+</body>
+</html>
