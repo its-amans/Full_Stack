@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Form</title>
+</head>
+<body>
+    <form method="POST" action="/users/<%= user.id %>?_method=PATCH">
+        <h3>User id: <%= user.id %></h3>
+        <input type="text" name="username" placeholder="<%= user.username %>" />
+
+    </br>
+    </br>
+        <input type="text" name="email" placeholder="<%= user.email %>" />
+    </br>
+    </br>
+        <input type="password" name="password" id="psw" placeholder="Enter Password" />
+    </br>
+    </br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
