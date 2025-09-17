@@ -1,0 +1,165 @@
+const express=require("express");
+const app=express();
+const path=require("path");
+const Listing=require("./models/listing.js");
+const ejsMate = require('ejs-mate');
+const wrapAsync= require('./utils/wrapAsync.js');
+const ExpressError=require("./utils/ExpressError.js");
+const {listingSchema}=require("./schema.js")
+
+app.engine('ejs', ejsMate);
+
+const methodOverride=require("method-override");
+
+app.use(methodOverride("_method"));
+
+const mongoose =require("mongoose");
+const { constants } = require("fs/promises");
+
+app.set("view engine","ejs");
+app.set("views",path.join(__dirname,"views"));
+
+app.use(express.static(path.join(__dirname,"public")));
+app.use(express.urlencoded({extended:true}));
+
+main().then((res)=>{
+    console.log("Succesful");
+}).catch((err)=>{
+    console.log(err);
+});
+
+async function main(){
+    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+}
+
+//Server Side Error Handling using joi . Here created this function so that it can be used as middleware.
+const validateListing=(req,res,next)=>{
+    let {error}=listingSchema.validate(req.body);
+    if(error){
+        let errMsg= error.details.map((el)=>el.message).join(",");
+        throw new ExpressError(400,errMsg);
+    } else{
+        next();
+    }
+}
+
+app.get("/",(req,res)=>{
+    res.send("Working Well");
+});
+
+// app.get("/testListings",async (req,res)=>{
+//     const listingSample= new Listing({
+//         title:"Chandigarh Villa",
+//         description:"Near the Beach",
+//         price:120000000,
+//         location:"Gudgaon",
+//         country:"India",
+//     });
+
+//     await listingSample.save();
+//     console.log("Sample was Saved");
+//     res.send("Successful Listing");
+// });
+
+app.get("/listings",wrapAsync(async (req,res)=>{
+    let allListings=await Listing.find({});
+
+    // console.log(allListings);
+    // res.send("Working Well");
+    res.render("listings/index.ejs",{allListings});
+}));
+
+// create List
+app.get("/listings/new",(req,res)=>{
+    res.render("listings/new.ejs");
+});
+
+app.post("/listings",validateListing,wrapAsync (async (req,res,next)=>{
+    //1.either this 
+        const newListing=new Listing(req.body.listing);
+    
+        await newListing.save();
+        res.redirect("/listings");
+
+    //2.oR this one
+
+    // const { title, description, price, location, country } = req.body.listing;
+    // const { filename, url } = req.body.listing.image || {}; // avoid crash if image is undefined
+
+    // let newListing= new Listing({
+    //     title,
+    //     description,
+    //     image: {
+    //         filename,
+    //         url,
+    //     },
+    //     price,
+    //     location,
+    //     country,
+    // });
+
+    // await newListing.save().then((savedListing) => { console.log(savedListing);})
+    // .catch((err)=>{console.log(err)});
+    // console.log(newListing);
+    // res.redirect("/listings");
+}));
+
+//show 
+
+app.get("/listings/:id",wrapAsync(async (req,res)=>{
+    let {id} =req.params;
+    const listing = await Listing.findById(id);
+    // console.log(listing);
+    // res.send("well");
+    res.render("listings/show.ejs",{listing});
+}));
+
+//Update List
+app.get("/listings/:id/edit",wrapAsync(async (req,res)=>{
+    let {id} =req.params;
+    const listing=await Listing.findById(id);
+    console.log(listing);
+    res.render("listings/edit.ejs",{listing});
+}));
+
+app.put("/listings/:id",validateListing,wrapAsync(async (req,res)=>{
+    const {id}=req.params;
+
+    const updateList=req.body.listing;
+    const listing=await Listing.findById(id);
+    await Listing.findByIdAndUpdate(id,updateList);
+
+    //In place of upper three lines we can directly write.
+    //await Listing.findByIdAndUpdate(id,{...req.body.listing});
+    
+    res.redirect(`/listings/${id}`);
+}));
+
+//Delete List
+app.delete("/listings/:id", wrapAsync(async (req, res) => {
+    const { id } = req.params;
+    const listing = await Listing.findById(id);
+    //console.log("Deleting listing:", listing);
+
+    await Listing.findByIdAndDelete(id);
+
+    res.redirect("/listings");
+}));
+
+//Hnadling error
+app.all(/.*/, (req, res, next) => {
+    next(new ExpressError(404, "Page Not Found"));
+});
+
+// Then the error handler
+app.use((err, req, res, next) => {
+    let { statusCode = 500, message = "Something Went Wrong" } = err;
+    res.status(statusCode).render("listings/error.ejs",{err});
+    // res.status(statusCode).send(message);
+});
+
+app.listen(8080,()=>{
+    console.log("Server is Listening to port 8080");
+});
+
+ 
